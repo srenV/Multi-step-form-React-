@@ -10,7 +10,7 @@ export const FirstForm = () => {
         e.preventDefault();
         setStep(step + 1);
       }}
-      className="mx-auto my-auto flex flex-col h-full w-full md:w-2/3 place-content-between py-5 md:gap-10 md:p-20"
+      className="mx-auto my-auto flex flex-col h-full w-full md:w-2/3 place-content-between md:gap-10 md:p-20"
     >
       <div className=" gap-5 md:gap-10 flex flex-col">
         <div className="flex flex-col gap-3">

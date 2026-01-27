@@ -19,7 +19,7 @@ export const FourthForm = () => {
         setStep(step + 1);
         setProgress(progress + 1);
       }}
-      className="mx-auto my-auto flex flex-col h-full w-full md:w-2/3 place-content-between py-5 gap-10 md:p-20"
+      className="mx-auto my-auto flex flex-col h-full w-full md:w-2/3 place-content-between py-5  md:p-20"
     >
       {/* Heading section */}
       <div className="flex flex-col gap-3">
