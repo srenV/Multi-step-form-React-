@@ -4,8 +4,8 @@ import React, { createContext, useContext, useState } from "react";
 const FormContext = createContext(null);
 
 export function FormProvider({ children }) {
-  const [step, setStep] = useState(2);
-  const [progress, setProgress] = useState(2);
+  const [step, setStep] = useState(1);
+  const [progress, setProgress] = useState(1);
 
   const [formData, setFormData] = useState({
     name: "",
