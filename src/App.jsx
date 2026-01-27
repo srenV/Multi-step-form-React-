@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Sidebar } from "./components/Sidebar";
+import { Footer } from "./layout/Footer.jsx";
 import { FirstForm } from "./components/FirstForm";
 import { SecondForm } from "./components/SecondForm";
 import { ThirdForm } from "./components/ThirdForm.jsx";
@@ -25,7 +26,7 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-sky-200/50 h-svh  flex">
+    <div className="bg-sky-200/50 h-svh  flex flex-col">
       <nav className="z-0">{windowWidth < 756 && <Sidebar />}</nav>
       <main
         className="mx-auto my-auto w-95/100 min-h-7/10 max-h-7/10 bg-white p-5 rounded-2xl flex gap-10 shadow-xl z-10 
@@ -63,6 +64,7 @@ function App() {
           </motion.div>
         </AnimatePresence>
       </main>
+      <Footer/>
     </div>
   );
 }

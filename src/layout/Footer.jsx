@@ -1,0 +1,41 @@
+import React from "react";
+
+export const Footer = () => {
+  return (
+    <footer className="flex justify-between p-2 px-2  text-xs md:text-lg font-semibold absolute md:relative top-0 w-full mx-auto">
+      <div className="flex md:gap-5 md:flex-row flex-col">
+        <a href="https://github.com/srenV">GitHub</a>
+        <a href="https://www.linkedin.com/in/soren-timo-voigt/">LinkedIn</a>
+      </div>
+      <div>
+        <span className="flex gap-2">
+          <span className="hidden md:block">Challenge from </span>
+          <a
+            href="https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ"
+            className="text-blue-400"
+          >
+            {" "}
+            FrontendMentor
+          </a>
+        </span>
+      </div>
+      <div className="flex md:gap-5 md:flex-row flex-col">
+        <a
+          href="https://srenv.vercel.app/impressum"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Impressum
+        </a>
+        <a
+          className="text-nowrap"
+          href="https://srenv.vercel.app/legal"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Privacy Policy
+        </a>
+      </div>
+    </footer>
+  );
+};
