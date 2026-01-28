@@ -46,7 +46,7 @@ export const SecondForm = () => {
       }}
       className="mx-auto my-auto flex flex-col h-full w-full place-content-between md:p-15 3xl:p-25"
     >
-      <div className="flex flex-col place-content-between md:place-content-center-safe gap-6 md:gap-8 h-full">
+      <div className="flex flex-col place-content-between md:place-content-center-safe gap-2 md:gap-8 h-full">
         {/* Heading section */}
         <div className="flex flex-col gap-1">
           <h1 className="text-start text-2xl md:text-3xl font-bold">
@@ -57,7 +57,7 @@ export const SecondForm = () => {
           </p>
         </div>
         {/* Radio section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-5 w-full ">
           {options.map((option) => (
             <label key={option.id} className="block cursor-pointer">
               <input

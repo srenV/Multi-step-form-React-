@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { preload } from "react-dom";
 import { Sidebar } from "./components/Sidebar";
 import { Footer } from "./layout/Footer.jsx";
 import { FirstForm } from "./components/FirstForm";
@@ -9,6 +10,9 @@ import { Submitted } from "./components/Submitted.jsx";
 import { useFormContext } from "./context/FormContext.jsx";
 import { AnimatePresence, motion, spring, useReducedMotion } from "motion/react";
 function App() {
+  preload("/bg-sidebar-mobile.svg", {as: "img"});
+  preload("/bg-sidebar-desktop.svg", {as: "img"});
+  preload("/icon-thank-you.svg", {as: "img"});
   const { step, setStep } = useFormContext();
   const reduceMotion = useReducedMotion();
   const [windowWidth, setWindowWidth] = useState(
