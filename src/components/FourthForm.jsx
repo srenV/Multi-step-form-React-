@@ -50,7 +50,7 @@ export const FourthForm = () => {
           Finishing up
         </h1>
         <p
-          className="text-gray-400 text-lg font-semibold"
+          className="text-gray-400 text-md font-semibold"
           id="summary-description"
         >
           Double-check everything look OK before confirming.

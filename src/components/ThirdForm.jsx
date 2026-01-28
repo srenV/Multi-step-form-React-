@@ -65,16 +65,16 @@ export const ThirdForm = () => {
         setStep(step + 1);
         setProgress(progress + 1);
       }}
-      className="mx-auto my-auto flex flex-col h-full w-full place-content-between 2xl:p-15 3xl:p-25"
+      className="mx-auto my-auto flex flex-col h-full w-full place-content-between gap-3 md:p-5 2xl:p-15 3xl:p-25"
       aria-label="Step 3: Add-Ons Selection"
     >
-      <div className=" gap-5 md:gap-10 flex flex-col">
-        <div className="flex flex-col gap-3">
+      <div className=" gap-5 2xl:gap-10 flex flex-col">
+        <div className="flex flex-col gap-2">
           <h1 className="uppercase text-2xl md:text-3xl font-bold">
             Pick add-ons
           </h1>
           <p
-            className="text-gray-400 text-lg font-semibold"
+            className="text-gray-400 text-md font-semibold"
             id="addons-description"
           >
             Add-ons help enhance your gaming experience.
@@ -82,7 +82,7 @@ export const ThirdForm = () => {
         </div>
 
         <fieldset
-          className="flex flex-col gap-5"
+          className="flex flex-col gap-3"
           aria-describedby="addons-description"
         >
           <legend className="sr-only">Available add-ons</legend>

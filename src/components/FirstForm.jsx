@@ -28,7 +28,7 @@ export const FirstForm = () => {
         e.preventDefault();
         setStep(step + 1);
       }}
-      className="mx-auto my-auto flex flex-col h-full w-full place-content-between md:gap-10 2xl:p-15 3xl:p-25"
+      className="mx-auto my-auto flex flex-col h-full w-full place-content-between md:gap-10 md:p-5 2xl:p-15 3xl:p-25"
       aria-label="Step 1: Personal Information"
     >
       <div className=" gap-5 2xl:gap-10 flex flex-col">
@@ -37,7 +37,7 @@ export const FirstForm = () => {
             Personal Info
           </h1>
           <p
-            className="text-gray-400 text-lg font-semibold"
+            className="text-gray-400 text-md font-semibold"
             id="personal-info-description"
           >
             Please provide your name, email address, and phone number.

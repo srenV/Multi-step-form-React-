@@ -65,8 +65,8 @@ function App() {
     <div className="bg-sky-200/50 h-svh  flex flex-col">
       {windowWidth < 756 && <Sidebar />}
       <main
-        className="mx-auto my-auto w-95/100 min-h-7/10 max-h-7/10 bg-white p-5 rounded-2xl flex gap-10 shadow-xl z-10 
-                       md:min-h-0 md:min-w-200 md:w-5/10 md:h-full 3xl:h-6/10 md:z-3"
+        className="mx-auto my-auto min-h-7/10 max-h-7/10 bg-white p-5 rounded-2xl flex gap-10 shadow-xl z-10 
+                       md:min-h-0 md:min-w-200 md:w-6/10 md:h-full 3xl:h-6/10 md:z-3"
         aria-label="Multi-step form"
       >
         {windowWidth > 756 && <Sidebar />}
