@@ -28,10 +28,10 @@ export const FirstForm = () => {
         e.preventDefault();
         setStep(step + 1);
       }}
-      className="mx-auto my-auto flex flex-col h-full w-full place-content-between md:gap-10 md:p-15 3xl:p-25"
+      className="mx-auto my-auto flex flex-col h-full w-full place-content-between md:gap-10 2xl:p-15 3xl:p-25"
       aria-label="Step 1: Personal Information"
     >
-      <div className=" gap-5 md:gap-10 flex flex-col">
+      <div className=" gap-5 2xl:gap-10 flex flex-col">
         <div className="flex flex-col gap-3">
           <h1 className="uppercase text-2xl md:text-3xl font-bold">
             Personal Info

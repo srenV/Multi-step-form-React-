@@ -65,7 +65,7 @@ export const ThirdForm = () => {
         setStep(step + 1);
         setProgress(progress + 1);
       }}
-      className="mx-auto my-auto flex flex-col h-full w-full place-content-between md:p-15 3xl:p-25"
+      className="mx-auto my-auto flex flex-col h-full w-full place-content-between 2xl:p-15 3xl:p-25"
       aria-label="Step 3: Add-Ons Selection"
     >
       <div className=" gap-5 md:gap-10 flex flex-col">

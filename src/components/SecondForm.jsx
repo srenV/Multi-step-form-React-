@@ -65,7 +65,7 @@ export const SecondForm = () => {
         setStep(step + 1);
         setProgress(progress + 1);
       }}
-      className="mx-auto my-auto flex flex-col h-full w-full place-content-between md:p-15 3xl:p-25"
+      className="mx-auto my-auto flex flex-col h-full w-full place-content-between 2xl:p-15 3xl:p-25"
       aria-label="Step 2: Select Plan"
     >
       <div className="flex flex-col place-content-between md:place-content-center-safe gap-2 md:gap-8 h-full">
