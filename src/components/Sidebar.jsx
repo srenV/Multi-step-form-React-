@@ -9,13 +9,13 @@ export const Sidebar = () => {
       <div className="p-8 2xl:p-10 flex items-start justify-center w-full gap-5 
                       md:flex-col md:justify-normal">
         <div className="flex gap-5 items-center">
-          <div
-          
+          <button
+            disabled={step === 5}
             onClick={() =>{ progress > 1 && setStep(1)}}
             className={`cursor-pointer flex rounded-full h-8 w-8 items-center justify-center border ${step === 1 ? "bg-blue-900 text-white" : "bg-gray-500/40 text-gray-200"}`}
           >
             <span>1</span>
-          </div>
+          </button>
           <div className="hidden md:block">
             <p className="text-gray-300">Step 1</p>
             <h2 className="text-lg font-semibold text-nowrap">Your Info</h2>
@@ -23,12 +23,13 @@ export const Sidebar = () => {
         </div>
 
         <div className="flex gap-5 items-center">
-          <div
+          <button
           onClick={() =>{ progress >= 2 && setStep(2)}}
+          disabled={step === 5}
             className={`cursor-pointer flex rounded-full h-8 w-8 items-center justify-center border ${step === 2 ? "bg-blue-900 text-white" : "bg-gray-500/40 text-gray-200"}`}
           >
             <span>2</span>
-          </div>
+          </button>
           <div className="hidden md:block">
             <p className="text-gray-300">Step 2</p>
             <h2 className="text-lg font-semibold text-nowrap">Select Plan</h2>
@@ -36,12 +37,13 @@ export const Sidebar = () => {
         </div>
 
         <div className="flex gap-5 items-center">
-          <div
+          <button
+          disabled={step === 5}
           onClick={() =>{ progress >= 3 && setStep(3)}}
             className={`cursor-pointer flex rounded-full h-8 w-8 items-center justify-center border ${step === 3 ? "bg-blue-900 text-white" : "bg-gray-500/40 text-gray-200"}`}
           >
             <span>3</span>
-          </div>
+          </button>
           <div className="hidden md:block">
             <p className="text-gray-300">Step 3</p>
             <h2 className="text-lg font-semibold text-nowrap">Add-Ons</h2>
@@ -49,12 +51,13 @@ export const Sidebar = () => {
         </div>
 
         <div className="flex gap-5 items-center">
-          <div
+          <button
+          disabled={step === 5}
           onClick={() =>{ progress > 3 && setStep(4)}}
             className={`cursor-pointer flex rounded-full h-8 w-8 items-center justify-center border ${step === 4 ? "bg-blue-900 text-white" : "bg-gray-500/40 text-gray-200"}`}
           >
             <span>4</span>
-          </div>
+          </button>
           <div className="hidden md:block">
             <p className="text-gray-300">Step 4</p>
             <h2 className="text-lg font-semibold text-nowrap">Summary</h2>

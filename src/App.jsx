@@ -5,8 +5,9 @@ import { FirstForm } from "./components/FirstForm";
 import { SecondForm } from "./components/SecondForm";
 import { ThirdForm } from "./components/ThirdForm.jsx";
 import { FourthForm } from "./components/FourthForm.jsx";
+import { Submitted } from "./components/Submitted.jsx";
 import { useFormContext } from "./context/FormContext.jsx";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { AnimatePresence, motion, spring, useReducedMotion } from "motion/react";
 function App() {
   const { step, setStep } = useFormContext();
   const reduceMotion = useReducedMotion();
@@ -38,7 +39,7 @@ function App() {
             key={step}
             initial={
               !reduceMotion && windowWidth >= 756
-                ? { opacity: 0, x: 20 }
+                ? { opacity: 0, x: 40 }
                 : { opacity: 0 }
             }
             animate={
@@ -48,12 +49,14 @@ function App() {
             }
             exit={
               !reduceMotion && windowWidth >= 756
-                ? { opacity: 0, x: -20 }
+                ? { opacity: 0, x: -40 }
                 : { opacity: 0 }
             }
             transition={{
-              duration: reduceMotion ? 0 : windowWidth >= 756 ? 0.3 : 0.18,
-              ease: "easeOut",
+              duration: reduceMotion ? 0 : windowWidth >= 756 ? 0.4 : 0.3,
+              ease: "easeOut", 
+              type: spring,
+              bounce: 0.5,
             }}
             className="w-full"
           >
@@ -61,10 +64,11 @@ function App() {
             {step === 2 && <SecondForm />}
             {step === 3 && <ThirdForm />}
             {step === 4 && <FourthForm />}
+            {step === 5 && <Submitted />}
           </motion.div>
         </AnimatePresence>
       </main>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
