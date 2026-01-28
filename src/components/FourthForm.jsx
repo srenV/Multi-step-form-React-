@@ -19,7 +19,7 @@ export const FourthForm = () => {
         setStep(step + 1);
         setProgress(progress + 1);
       }}
-      className="mx-auto my-auto flex flex-col h-full w-full place-content-between py-5  md:p-15 3xl:p-25"
+      className="mx-auto my-auto flex flex-col h-full w-full place-content-between md:p-15 3xl:p-25"
     >
       {/* Heading section */}
       <div className="flex flex-col gap-3">
@@ -32,9 +32,9 @@ export const FourthForm = () => {
       </div>
 
       {/* Main section */}
-      <div className="bg-blue-800/20 rounded-lg flex flex-col gap-10 md:gap-5 p-3">
+      <div className="bg-blue-800/20 rounded-lg flex flex-col gap-10 md:gap-5 p-3 overflow-scroll">
         <div className="flex gap-1 flex-col ">
-          <details className="group p-2 cursor-pointer">
+          <details className="group md:p-2 cursor-pointer">
             <summary className=" list-none flex items-center justify-between group-open:font-bold ">
               <div className="capitalize text-gray-500 group-open:text-blue-900 ">
                 {formData.plan} ({formData.billing})
@@ -58,7 +58,7 @@ export const FourthForm = () => {
 
         {formData.onlineServices && (
           <div className="flex gap-1 flex-col ">
-            <details className="group p-2 cursor-pointer">
+            <details className="group md:p-2 cursor-pointer">
               <summary className=" list-none flex items-center justify-between group-open:font-bold">
                 <span className="text-gray-500 group-open:text-blue-900">
                   Online service
@@ -86,7 +86,7 @@ export const FourthForm = () => {
 
         {formData.largerStorage && (
           <div className="flex gap-1 flex-col ">
-            <details className="group p-2 cursor-pointer">
+            <details className="group md:p-2 cursor-pointer">
               <summary className="list-none flex items-center justify-between group-open:font-bold">
                 <span className="text-gray-500 group-open:text-blue-900">
                   Larger storage
@@ -114,7 +114,7 @@ export const FourthForm = () => {
 
         {formData.cusomizableProfile && (
           <div className="flex gap-1 flex-col ">
-            <details className="group p-2 cursor-pointer">
+            <details className="group md:p-2 cursor-pointer">
               <summary className=" list-none flex items-center justify-between group-open:font-bold">
                 <span className="text-gray-500 group-open:text-blue-900">
                   Cusomizable Profile
@@ -141,7 +141,7 @@ export const FourthForm = () => {
         )}
       </div>
 
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between mt-5">
         <h2 className="font-semibold text-gray-500">
           Total{" "}
           <span>
