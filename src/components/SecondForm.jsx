@@ -1,3 +1,24 @@
+/**
+ * @file SecondForm.jsx
+ * @description Step 2 form component for selecting a subscription plan (Arcade/Advanced/Pro).
+ *
+ * Key Functionality:
+ * - Displays 3 plan options with dynamic pricing based on billing period (monthly/yearly)
+ * - Includes a billing toggle switch (Monthly ↔ Yearly)
+ * - Updates total price when plan is selected or billing period changes
+ * - Includes "2 months free" badge for yearly billing
+ *
+ * Complex Actions:
+ * - Dynamic Price Calculation: When plan selection or billing period changes:
+ *   1. Calculates base price from planPrices object based on selected plan and billing
+ *   2. Iterates through all addon keys and sums their prices if selected
+ *   3. Updates finalPrice = planBase + addonsTotal
+ *   - This allows price changes to cascade when returning from later steps with add-ons selected
+ * - Billing Toggle: Changes all displayed prices and recalculates total to reflect monthly/yearly rates
+ *   - Prices are 10x higher for yearly (e.g., $9/mo = $90/yr)
+ * - Navigation: Advancing to Step 3 increments both step AND progress (marks step 2 as completed)
+ */
+
 import React from "react";
 import { useFormContext } from "../context/FormContext.jsx";
 
@@ -45,6 +66,7 @@ export const SecondForm = () => {
         setProgress(progress + 1);
       }}
       className="mx-auto my-auto flex flex-col h-full w-full place-content-between md:p-15 3xl:p-25"
+      aria-label="Step 2: Select Plan"
     >
       <div className="flex flex-col place-content-between md:place-content-center-safe gap-2 md:gap-8 h-full">
         {/* Heading section */}
@@ -52,12 +74,16 @@ export const SecondForm = () => {
           <h1 className="text-start text-2xl md:text-3xl font-bold">
             Select your plan
           </h1>
-          <p className="text-gray-400  font-semibold">
+          <p className="text-gray-400  font-semibold" id="billing-description">
             You have the option of monthly or yearly billing.
           </p>
         </div>
         {/* Radio section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-5 w-full ">
+        <fieldset
+          className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-5 w-full"
+          aria-describedby="billing-description"
+        >
+          <legend className="sr-only">Plan selection</legend>
           {options.map((option) => (
             <label key={option.id} className="block cursor-pointer">
               <input
@@ -109,17 +135,25 @@ export const SecondForm = () => {
               </div>
             </label>
           ))}
-        </div>
+        </fieldset>
         <div />
         <div className="bg-gray-100 rounded-lg gap-4 md:gap-6 flex items-center justify-center p-3 md:p-4">
           <span
             className={`${formData.billing === "monthly" && "text-slate-800"} text-gray-400 font-semibold`}
+            aria-label={
+              formData.billing === "monthly"
+                ? "Monthly billing selected"
+                : "Monthly billing"
+            }
           >
             Monthly
           </span>
           <div className="relative inline-block w-11 h-5">
             <input
               id="switch-component"
+              type="checkbox"
+              aria-label="Toggle between monthly and yearly billing"
+              aria-checked={formData.billing === "yearly"}
               checked={formData.billing === "yearly"}
               onChange={(e) => {
                 const checked = e.target.checked;
@@ -140,7 +174,6 @@ export const SecondForm = () => {
                   };
                 });
               }}
-              type="checkbox"
               className="peer appearance-none w-11 h-5  rounded-full bg-slate-800 cursor-pointer transition-colors duration-300"
             />
             <label
@@ -150,6 +183,11 @@ export const SecondForm = () => {
           </div>
           <span
             className={`${formData.billing === "yearly" && "text-slate-800"} text-gray-400 font-semibold`}
+            aria-label={
+              formData.billing === "yearly"
+                ? "Yearly billing selected"
+                : "Yearly billing"
+            }
           >
             Yearly
           </span>
@@ -165,6 +203,7 @@ export const SecondForm = () => {
           type="button"
           onClick={() => setStep(step - 1)}
           className="font-semibold text-gray-400"
+          aria-label="Go back to previous step"
         >
           Go Back
         </button>
