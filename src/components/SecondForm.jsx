@@ -44,7 +44,7 @@ export const SecondForm = () => {
         setStep(step + 1);
         setProgress(progress + 1);
       }}
-      className="mx-auto my-auto flex flex-col h-full w-full md:w-2/3 place-content-between py-5  md:p-20"
+      className="mx-auto my-auto flex flex-col h-full w-full place-content-between md:p-15 3xl:p-25"
     >
       <div className="flex flex-col place-content-between md:place-content-center-safe gap-6 md:gap-8 h-full">
         {/* Heading section */}
@@ -86,7 +86,7 @@ export const SecondForm = () => {
                 }}
               />
               <div
-                className="md:border-2 border border-gray-400 rounded-lg md:rounded-xl transition-all hover:scale-102 h-full gap-3 p-4
+                className="md:border-2 border border-gray-400 rounded-lg md:rounded-xl transition-all hover:scale-102 h-full gap-3 p-2 md:p-4
               flex md:flex-col md:gap-5 md:place-content-between
                 peer-checked:border-blue-900 peer-checked:ring-1 peer-checked:ring-blue-950"
               >

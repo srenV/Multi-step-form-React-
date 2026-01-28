@@ -44,7 +44,7 @@ export const ThirdForm = () => {
         setStep(step + 1);
         setProgress(progress + 1);
       }}
-      className="mx-auto my-auto flex flex-col h-full w-full md:w-2/3 place-content-between py-5 md:p-20"
+      className="mx-auto my-auto flex flex-col h-full w-full place-content-between md:p-15 3xl:p-25"
     >
       <div className=" gap-5 md:gap-10 flex flex-col">
         <div className="flex flex-col gap-3">
@@ -65,7 +65,7 @@ export const ThirdForm = () => {
               <div>
                 <div
                   className={
-                    "border border-gray-400 rounded-lg w-full p-5 flex items-center justify-between  " +
+                    "border border-gray-400 rounded-lg w-full p-2 md:p-5 flex items-center justify-between  " +
                     (formData[option.key]
                       ? "bg-blue-900/10 border-blue-900 ring-2 ring-blue-900/50"
                       : "")

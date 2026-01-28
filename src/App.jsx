@@ -30,7 +30,7 @@ function App() {
       <nav className="z-0">{windowWidth < 756 && <Sidebar />}</nav>
       <main
         className="mx-auto my-auto w-95/100 min-h-7/10 max-h-7/10 bg-white p-5 rounded-2xl flex gap-10 shadow-xl z-10 
-                       md:min-h-0 md:h-6/10 md:min-w-200 md:w-5/10 md:z-3"
+                       md:min-h-0 md:min-w-200 md:w-5/10 md:h-full 3xl:h-6/10 md:z-3"
       >
         {windowWidth > 756 && <Sidebar />}
         <AnimatePresence mode="wait" initial={false}>
