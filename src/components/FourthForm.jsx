@@ -47,7 +47,7 @@ export const FourthForm = () => {
             <div className=" group-open:animate-fade-in flex flex-col gap-3">
               <button
                 className="underline font-semibold text-gray-500 place-self-start"
-                onClick={() => setStep(2)}
+                onClick={() => setStep(1)}
               >
                 Change
               </button>
@@ -74,7 +74,7 @@ export const FourthForm = () => {
               <div className=" group-open:animate-fade-in flex flex-col gap-3">
                 <button
                   className="underline font-semibold text-gray-500 place-self-start"
-                  onClick={() => setStep(3)}
+                  onClick={() => setStep(2)}
                 >
                   Change
                 </button>
@@ -102,7 +102,7 @@ export const FourthForm = () => {
               <div className=" group-open:animate-fade-in flex flex-col gap-3">
                 <button
                   className="underline font-semibold text-gray-500 place-self-start"
-                  onClick={() => setStep(3)}
+                  onClick={() => setStep(2)}
                 >
                   Change
                 </button>
@@ -131,7 +131,7 @@ export const FourthForm = () => {
               <div className=" group-open:animate-fade-in flex flex-col gap-3">
                 <button
                   className="underline font-semibold text-gray-500 place-self-start"
-                  onClick={() => setStep(3)}
+                  onClick={() => setStep(2)}
                 >
                   Change
                 </button>

@@ -18,7 +18,7 @@ export const Sidebar = () => {
           </div>
           <div className="hidden md:block">
             <p className="text-gray-300">Step 1</p>
-            <h2 className="text-lg font-semibold ">Your Info</h2>
+            <h2 className="text-lg font-semibold text-nowrap">Your Info</h2>
           </div>
         </div>
 
@@ -31,7 +31,7 @@ export const Sidebar = () => {
           </div>
           <div className="hidden md:block">
             <p className="text-gray-300">Step 2</p>
-            <h2 className="text-lg font-semibold">Select Plan</h2>
+            <h2 className="text-lg font-semibold text-nowrap">Select Plan</h2>
           </div>
         </div>
 
@@ -44,7 +44,7 @@ export const Sidebar = () => {
           </div>
           <div className="hidden md:block">
             <p className="text-gray-300">Step 3</p>
-            <h2 className="text-lg font-semibold">Add-Ons</h2>
+            <h2 className="text-lg font-semibold text-nowrap">Add-Ons</h2>
           </div>
         </div>
 
@@ -57,7 +57,7 @@ export const Sidebar = () => {
           </div>
           <div className="hidden md:block">
             <p className="text-gray-300">Step 4</p>
-            <h2 className="text-lg font-semibold">Summary</h2>
+            <h2 className="text-lg font-semibold text-nowrap">Summary</h2>
           </div>
         </div>
       </div>
