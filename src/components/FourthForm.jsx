@@ -30,8 +30,8 @@ export const FourthForm = () => {
     progress,
     setProgress,
     formData,
-    addonPrices,
     planPrices,
+    addonPrices,
   } = useFormContext();
 
   return (
@@ -99,7 +99,7 @@ export const FourthForm = () => {
                   {formData.billing === "monthly"
                     ? addonPrices.monthly.onlineServices
                     : addonPrices.yearly.onlineServices}
-                  /yr
+                  {formData.billing === "monthly" ? "/mo" : "/yr"}
                 </span>
               </summary>
               <div className=" group-open:animate-fade-in flex flex-col gap-3">
@@ -127,7 +127,7 @@ export const FourthForm = () => {
                   {formData.billing === "monthly"
                     ? addonPrices.monthly.largerStorage
                     : addonPrices.yearly.largerStorage}
-                  /yr
+                  {formData.billing === "monthly" ? "/mo" : "/yr"}
                 </span>
               </summary>
               <div className=" group-open:animate-fade-in flex flex-col gap-3">
@@ -143,20 +143,20 @@ export const FourthForm = () => {
           </div>
         )}
 
-        {formData.cusomizableProfile && (
+        {formData.customizableProfile && (
           <div className="flex gap-1 flex-col ">
             <details className="group md:p-2 cursor-pointer">
               <summary className=" list-none flex items-center justify-between group-open:font-bold">
                 <span className="text-gray-500 group-open:text-blue-900">
-                  Cusomizable Profile
-                </span>{" "}
+                  Customizable Profile
+                </span>
                 <span className="group-open:translate-y-2 text-blue-900 font-semibold">
                   {" "}
                   +$
                   {formData.billing === "monthly"
-                    ? addonPrices.monthly.cusomizableProfile
-                    : addonPrices.yearly.cusomizableProfile}
-                  /yr
+                    ? addonPrices.monthly.customizableProfile
+                    : addonPrices.yearly.customizableProfile}
+                  {formData.billing === "monthly" ? "/mo" : "/yr"}
                 </span>
               </summary>
               <div className=" group-open:animate-fade-in flex flex-col gap-3">

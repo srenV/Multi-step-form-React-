@@ -15,12 +15,13 @@
  *   - name, email, phone: User personal information
  *   - plan: Selected plan ID ("arcade", "advanced", "pro", or empty)
  *   - billing: "monthly" or "yearly"
- *   - onlineServices, largerStorage, cusomizableProfile: Boolean flags for selected add-ons
+ *   - onlineServices, largerStorage, customizableProfile: Boolean flags for selected add-ons
  *   - finalPrice: Calculated total (plan price + sum of selected addon prices)
  *
  * Complex Actions:
- * - Price Tables: planPrices and addonPrices objects use 2-level nesting for lookup:
+ * - Price Tables: planPrices object uses 2-level nesting for lookup:
  *   - planPrices[billing][planId] → returns price (e.g., planPrices["monthly"]["arcade"] = 9)
+ * - Add-on Prices: addonPrices object uses 2-level nesting for lookup:
  *   - addonPrices[billing][addonKey] → returns price (e.g., addonPrices["yearly"]["onlineServices"] = 10)
  *   - All yearly prices are 10x the monthly price (e.g., $9/mo = $90/yr)
  * - Usage Pattern: Components access context via useFormContext() custom hook
@@ -43,7 +44,7 @@ export function FormProvider({ children }) {
     billing: "monthly",
     onlineServices: false,
     largerStorage: false,
-    cusomizableProfile: false,
+    customizableProfile: false,
     finalPrice: 0,
   });
 
@@ -51,16 +52,17 @@ export function FormProvider({ children }) {
     monthly: { arcade: 9, advanced: 12, pro: 15 },
     yearly: { arcade: 90, advanced: 120, pro: 150 },
   };
+
   const addonPrices = {
     monthly: {
       onlineServices: 1,
       largerStorage: 2,
-      cusomizableProfile: 2,
+      customizableProfile: 2,
     },
     yearly: {
       onlineServices: 10,
       largerStorage: 20,
-      cusomizableProfile: 20,
+      customizableProfile: 20,
     },
   };
 

@@ -34,27 +34,49 @@ export const ThirdForm = () => {
     addonPrices,
   } = useFormContext();
 
+  const handleAddonToggle = (addonKey) => {
+    setFormData((prev) => {
+      // Toggle the selected addon on/off
+      const toggled = !prev[addonKey];
+
+      // Calculate total price of all selected addons
+      const addonsTotal = Object.keys(addonPrices[prev.billing]).reduce(
+        (sum, key) => {
+          const isSelected = key === addonKey ? toggled : prev[key];
+          return isSelected ? sum + addonPrices[prev.billing][key] : sum;
+        },
+        0,
+      );
+
+      // Get base plan price (default to 0 if no plan selected)
+      const planBase = planPrices[prev.billing][prev.plan] ?? 0;
+
+      // Calculate final total (plan + addons, minimum 0)
+      const finalPrice = Math.max(0, planBase + addonsTotal);
+
+      // Return updated form data with toggled addon and new price
+      return { ...prev, [addonKey]: toggled, finalPrice };
+    });
+  };
+
   const options = [
     {
       key: "onlineServices",
       service: "Online service",
       benefit: "Access to multiplayer games",
       price: formData.billing === "monthly" ? "$1/mo" : "$10/yr",
-      priceInt: formData.billing === "monthly" ? 1 : 10,
     },
     {
       key: "largerStorage",
       service: "Larger storage",
       benefit: "Extra 1TB of cloud save",
       price: formData.billing === "monthly" ? "$2/mo" : "$20/yr",
-      priceInt: formData.billing === "monthly" ? 2 : 20,
     },
     {
-      key: "cusomizableProfile",
+      key: "customizableProfile",
       service: "Customizable profile",
       benefit: "Custom theme on your profile",
       price: formData.billing === "monthly" ? "$2/mo" : "$20/yr",
-      priceInt: formData.billing === "monthly" ? 2 : 20,
     },
   ];
 
@@ -107,35 +129,8 @@ export const ThirdForm = () => {
                       name={option.service}
                       id={option.service}
                       className="scale-150"
-                      checked={!!formData[option.key]}
-                      onChange={() =>
-                        setFormData((prev) => {
-                          const toggled = !prev[option.key];
-                          const addonsTotal = Object.keys(
-                            addonPrices[prev.billing],
-                          ).reduce((sum, key) => {
-                            let isSelected;
-                            if (key === option.key) {
-                              isSelected = toggled;
-                            } else {
-                              isSelected = !!prev[key];
-                            }
-
-                            if (isSelected) {
-                              return sum + addonPrices[prev.billing][key];
-                            } else {
-                              return sum;
-                            }
-                          }, 0);
-                          const planBase =
-                            planPrices[prev.billing][prev.plan] ?? 0;
-                          const finalPrice = Math.max(
-                            0,
-                            planBase + addonsTotal,
-                          );
-                          return { ...prev, [option.key]: toggled, finalPrice };
-                        })
-                      }
+                      checked={formData[option.key]}
+                      onChange={() => handleAddonToggle(option.key)}
                     />
                     <div className="text-start">
                       <h2 className="md:text-lg font-semibold">

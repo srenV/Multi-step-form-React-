@@ -30,9 +30,51 @@ export const SecondForm = () => {
     setProgress,
     formData,
     setFormData,
-    addonPrices,
     planPrices,
+    addonPrices,
   } = useFormContext();
+
+  const handlePlanChange = (newPlan) => {
+    setFormData((prev) => {
+      const planBase = planPrices[prev.billing][newPlan] ?? 0;
+
+      // Calculate total price of all selected addons
+      let addonsTotal = 0;
+      for (const key of Object.keys(addonPrices[prev.billing])) {
+        if (prev[key]) {
+          addonsTotal += addonPrices[prev.billing][key];
+        }
+      }
+
+      return {
+        ...prev,
+        plan: newPlan,
+        finalPrice: planBase + addonsTotal,
+      };
+    });
+  };
+
+  const handleBillingChange = (checked) => {
+    const newBilling = checked ? "yearly" : "monthly";
+
+    setFormData((prev) => {
+      const planBase = planPrices[newBilling][prev.plan] ?? 0;
+
+      // Calculate total price of all selected addons
+      let addonsTotal = 0;
+      for (const key of Object.keys(addonPrices[newBilling])) {
+        if (prev[key]) {
+          addonsTotal += addonPrices[newBilling][key];
+        }
+      }
+
+      return {
+        ...prev,
+        billing: newBilling,
+        finalPrice: planBase + addonsTotal,
+      };
+    });
+  };
 
   const options = [
     {
@@ -93,23 +135,7 @@ export const SecondForm = () => {
                 required
                 className="peer sr-only"
                 checked={formData.plan === option.id}
-                onChange={() => {
-                  const newPlan = option.id;
-                  setFormData((prev) => {
-                    const planBase = planPrices[prev.billing][newPlan] ?? 0;
-                    let addonsTotal = 0;
-                    for (const key of Object.keys(addonPrices[prev.billing])) {
-                      if (prev[key]) {
-                        addonsTotal += addonPrices[prev.billing][key];
-                      }
-                    }
-                    return {
-                      ...prev,
-                      plan: newPlan,
-                      finalPrice: planBase + addonsTotal,
-                    };
-                  });
-                }}
+                onChange={() => handlePlanChange(option.id)}
               />
               <div
                 className="md:border-2 border border-gray-400 rounded-lg md:rounded-xl transition-all hover:scale-102 h-full gap-3 p-2 md:p-4
@@ -155,25 +181,7 @@ export const SecondForm = () => {
               aria-label="Toggle between monthly and yearly billing"
               aria-checked={formData.billing === "yearly"}
               checked={formData.billing === "yearly"}
-              onChange={(e) => {
-                const checked = e.target.checked;
-                const newBilling = checked ? "yearly" : "monthly";
-
-                setFormData((prev) => {
-                  const planBase = planPrices[newBilling][prev.plan] ?? 0;
-                  let addonsTotal = 0;
-                  for (const key of Object.keys(addonPrices[newBilling])) {
-                    if (prev[key]) {
-                      addonsTotal += addonPrices[newBilling][key];
-                    }
-                  }
-                  return {
-                    ...prev,
-                    billing: newBilling,
-                    finalPrice: planBase + addonsTotal,
-                  };
-                });
-              }}
+              onChange={(e) => handleBillingChange(e.target.checked)}
               className="peer appearance-none w-11 h-5  rounded-full bg-slate-800 cursor-pointer transition-colors duration-300"
             />
             <label
